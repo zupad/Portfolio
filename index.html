@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Developer & Analyst</title>
+    <meta name="description" content="Professional portfolio showcasing my Python development projects including stock market analysis tools and gaming websites">
+    
+    <!-- Three.js for 3D animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/geometries/TextGeometry.js"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- SSH Terminal Loading Screen -->
+    <div id="ssh-loader">
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-btn"></div>
+                    <div class="terminal-btn"></div>
+                    <div class="terminal-btn"></div>
+                </div>
+                <span>SSH Terminal - Secure Connection</span>
+            </div>
+            <div class="terminal-body" id="terminal-content">
+                <!-- Terminal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- 3D Three.js Container -->
+    <div id="three-container"></div>
+
+    <!-- Main Website Content -->
+    <div id="main-website">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">ELLIOT.FIDGE</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">ELLIOT'S PORTFOLIO</h1>
+                <p class="hero-subtitle">Developer & Data Analyst</p>
+                <p class="hero-description">
+                    Welcome to my portfolio! I study Information Technology with a focus on Networks and Cyber Security Systems. 
+                    I'm passionate about technology, programming, and creating innovative solutions that solve real-world problems.
+                </p>
+                <a href="#projects" class="cta-button">
+                    <i class="fas fa-code"></i> View My Work
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">ABOUT</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I am a dedicated IT professional with a Bachelor's degree in Information Technology, 
+                        specializing in Networks and Cyber Security Systems. My academic foundation provides 
+                        expertise in network architecture, cybersecurity protocols, and digital infrastructure protection, 
+                        which I apply to create innovative technical solutions.
+                    </p>
+                    <br>
+                    <p>
+                        Beyond technology, I'm passionate about volleyball and have competed at state level teams 
+                        throughout my life. This competitive sports background has strengthened my teamwork, 
+                        communication, and leadership skills - qualities that translate directly into collaborative 
+                        project environments and professional team dynamics.
+                    </p>
+                </div>
+                <div class="skills-container">
+                    <div class="skill-cube">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="skill-cube">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="skill-cube">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="skill-cube">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <div class="skill-cube">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="skill-cube">
+                        <i class="fab fa-github"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <h2 class="section-title">SKILLS & EXPERTISE</h2>
+            <div class="education-cards">
+                <div class="education-card">
+                    <h3>Bachelor of Information Technology</h3>
+                    <h4>Networks and Cyber Security Systems</h4>
+                    <p>
+                        Comprehensive degree program covering network architecture, cybersecurity principles, 
+                        threat analysis, incident response, and security system implementation. Strong foundation 
+                        in both theoretical knowledge and practical applications of information technology and security.
+                    </p>
+                </div>
+                <div class="education-card">
+                    <h3>Certificate III in Business</h3>
+                    <h4>Business Operations & Administration</h4>
+                    <p>
+                        Professional qualification covering business fundamentals, communication skills, 
+                        and operational procedures. Provides essential business acumen to complement 
+                        technical expertise and enhance project management capabilities.
+                    </p>
+                </div>
+                <div class="education-card">
+                    <h3>Python Development</h3>
+                    <h4>Data Analysis & Applications</h4>
+                    <p>
+                        Advanced Python programming with expertise in pandas, numpy, yfinance, and data visualization. 
+                        Specialized in creating comprehensive analysis tools, automated data processing systems, 
+                        and professional-grade applications with database integration.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">PROJECTS</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">AFASX Stock Tracker</h3>
+                    <p>Advanced Python application for comprehensive ASX stock analysis. Features real-time data, technical indicators (RSI, MACD, Bollinger Bands), financial metrics, and professional reporting. Includes web dashboard, database storage, and supports all ASX-listed stocks.</p>
+                    <div class="project-tech">
+                        <span>Python</span> • <span>pandas</span> • <span>yfinance</span> • <span>SQLite</span> • <span>Streamlit</span>
+                    </div>
+                    <div class="project-link">
+                        <a href="https://github.com/zupad/AFASX-Stock-Program" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Minimammoth Games Website</h3>
+                    <p>Professional website development for an indie game development company. Modern, responsive design showcasing their game portfolio with interactive elements and engaging user experience.</p>
+                    <div class="project-tech">
+                        <span>HTML5</span> • <span>CSS3</span> • <span>JavaScript</span> • <span>Responsive Design</span>
+                    </div>
+                    <div class="project-link">
+                        <a href="https://github.com/zupad/MMG-Website" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Upcoming Project</h3>
+                    <p>New project in development. Stay tuned for updates on exciting new developments in data analysis, web development, or automation tools.</p>
+                    <div class="project-tech">
+                        <span>TBD</span> • <span>Coming Soon</span>
+                    </div>
+                    <div class="project-link">
+                        <span style="color: #4da6ff; opacity: 0.7;">
+                            <i class="fas fa-clock"></i> In Development
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">CONTACT</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span>Elliot.Fidge@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span>0403 795 706</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github contact-icon"></i>
+                        <span>github.com/zupad</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin contact-icon"></i>
+                        <span>LinkedIn: Will make one soon</span>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-input" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-input" rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="js.js"></script>
+</body>
+</html>
